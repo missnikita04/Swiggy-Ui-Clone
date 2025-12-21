@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { FiSearch } from "react-icons/fi";
 import { BiRightArrowCircle } from "react-icons/bi";
 import { BiLeftArrowCircle } from "react-icons/bi";
+import Navbar1 from './Navbar1';
 function Category() {
     const [slide,setSlide]=useState(0);
     const [Category, setCategory]=useState([]);
@@ -17,7 +18,7 @@ function Category() {
 
     },[])
     const prevSlide=()=>{
-        if(Category.length-8 ==slide) return false;
+        if(Category.length-8==slide) return false;
         setSlide(slide+3);
 
     }
@@ -31,10 +32,12 @@ function Category() {
 
   return (
     <>
+    <Navbar1/>
+
     <div className="w-full min-h-screen">
     {/* searhc bar */}
  <div className="flex items-center justify-center  h-60">
-      <div className="w-[600px] h-15 bg-white flex items-center gap-3 px-10 py-20 
+      <div className="w-[600px] h-15 bg-white flex items-center gap-3 px-10  
                       border text-gray-500
                       focus-within:shadow-xl transition">
 
@@ -61,8 +64,8 @@ function Category() {
     <div className='flex justify-between  m-4' >
     <div className='text-2xl font-bold '>  Popular Cuisines</div>
     <div className='flex text-3xl text-[#ff5200] '>
-        <BiLeftArrowCircle onClick={prevSlide}  />
-    <BiRightArrowCircle onClick={nextSlide} />
+        <BiLeftArrowCircle onClick={nextSlide}  />
+    <BiRightArrowCircle onClick={prevSlide} />
 
     </div>
 

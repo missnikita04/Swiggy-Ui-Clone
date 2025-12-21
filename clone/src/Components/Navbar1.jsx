@@ -6,6 +6,7 @@ import { MdOutlineHelp } from "react-icons/md";
 import { FaRegUser } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
 import { FaBox } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function Navbar1() {
   const [toggle, setToggle] = useState(false);
@@ -18,7 +19,7 @@ function Navbar1() {
   const links=[
     {
         icon:<FaBox />,
-        name:"Box"
+        name:"Swiggy Corporate"
     },
      {
         icon:<IoSearch  />,
@@ -59,7 +60,7 @@ function Navbar1() {
       </div>
 
 
-      <header className="p[-15px] shadow-xl relative z-20">
+      <header className="p-[-15px] shadow-xl relative z-20">
         <div className="max-w-[12000px] mx-auto flex items-center justify-between">
 <div className="flex items-center gap-4">
   <div className="w-[100px]">
@@ -77,7 +78,7 @@ function Navbar1() {
           <nav className="flex list-none gap-10  font-semibold text-[20px]   ">
             {links.map(  
                 (links,index)  =>
-                  <li key={index} className="flex items-center gap-1 hover:text-[#ff5200] cursor-pointer">{links.icon} {links.name} <sup className="text-yellow-400">{links.sup}</sup></li>
+                  <Link  to={`/${links.name}`} key={index} className="flex items-center gap-1 hover:text-[#ff5200] cursor-pointer">{links.icon} {links.name} <sup className="text-yellow-400">{links.sup}</sup></Link>
                    )}
           </nav>
         </div>

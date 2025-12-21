@@ -11,11 +11,14 @@ import Footer from "../Components/Footer"
 import News from "../Components/News"
 import Cartfood from "./Cartfood";
 import CardGrocery from "./CardGrocery";
+import { useNavigate } from "react-router-dom";
 
 function Hero() {
         const [slide,setSlide]=useState(0);
       const [Category, setCategory]=useState([]);
 const visibleItems = 8;
+
+const navigate=useNavigate();
 
   const links = [
     { name: "Swiggy Corporate" },
@@ -132,6 +135,7 @@ const foodData=[
       <input
         type="text"
         placeholder="Enter your delivery location"
+       
         className="w-full h-[50px] outline-none text-gray-700 font-semibold"
       />
     </div>
@@ -140,6 +144,7 @@ const foodData=[
       <FiSearch className="text-gray-400 text-2xl" />
       <input
         type="text"
+          onFocus={() => navigate("/search")}
         placeholder="Search for restaurants, items or more"
         className="w-full h-[50px] outline-none text-gray-700 font-semibold"
       />
@@ -179,8 +184,8 @@ const foodData=[
     </section>
 
     {/* // product section */}
-       <div className="w-full h-[400px]">
-        <div className='flex justify-between  m-4 h-[70px] relative top-10  ' >
+       <div className="w-full h-[500px]">
+        <div className='flex justify-between  m-4 h-[70px] ' >
         <div className='text-2xl font-bold '>  Popular Cuisines</div>
         <div className='flex text-3xl text-[#ff5200] '>
             <BiLeftArrowCircle onClick={prevSlide}  />
@@ -192,7 +197,7 @@ const foodData=[
     
     
         
-        <div className='flex z-0  overflow-hidden relative top-10'>
+        <div className='flex z-0  overflow-hidden '>
             {
                 Category.map((cate,index)=>{
                     return( <div
@@ -207,7 +212,10 @@ const foodData=[
                 })
             }
         </div>
-        <div className='flex z-0  overflow-hidden relative top-10'>
+     
+      {/* grocery with instamart */}
+        <div className='flex z-0  overflow-hidden '>
+
             {
                 Category.map((cate,index)=>{
                     return( <div

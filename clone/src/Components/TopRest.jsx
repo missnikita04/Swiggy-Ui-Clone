@@ -31,7 +31,7 @@ function TopRest() {
 
   return (
     <>
-      <div className="h-[180px] flex justify-between  m-4 h-[70px] relative top-30  mb-[100px] ">
+      <div className="h-[90px] flex justify-between  mt-4  relative pt-4  ">
         <div className="text-2xl font-bold ">
           {" "}
           Discover best restuarant on dineout

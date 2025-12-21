@@ -3,8 +3,8 @@ import { GiTabletopPlayers } from "react-icons/gi";
 
 function Card(props) {
   return (
-    <div className="w-[273px] h-[400px] shrink-0 grow  border border-gray-400 rounded-lg">
-      <div className="h-[182px] rounded-[15px] overflow-hidden relative ">
+    <div className="w-[273px] h-[400px] shrink-0 grow border rounded-b-lg rounded-lg border-gray-300 ">
+      <div className="h-[182px] rounded-t-lg overflow-hidden relative ">
         <img
           src={"http://localhost:5000/images/" + props.image}
           alt="img"
@@ -19,24 +19,24 @@ function Card(props) {
       </div>
       <div className="mt-3 text-xl font-bold left-3 relative">{props.name}</div>
       <div>
-        <span className="ml-3 text-gray-600 relative left-3 ">
+        <span className="text-gray-600 relative left-3 text-sm ">
           {props.minTime} -{props.maxTime} mins
         </span>
       </div>
-      <div className="text-gray-600 relative left-3">{props.place}</div>
-      <div className="w-[150px]  py-1 bg-gray-200 rounded-full relative top-2  relative left-3">
-        <p className="text-gray-600 font-bold text-sm gap-2 flex ">
-          <GiTabletopPlayers className="inline text-2xl " />
+      <div className="text-gray-600 relative left-3 text-sm">{props.place}</div>
+      <div className="w-[130px]  py-1 bg-gray-200 rounded-full relative  relative left-3">
+        <p className="text-gray-600 font-semibold text-sm gap-2 flex ">
+          <GiTabletopPlayers className="inline text-xl " />
            Table booking
         </p>
       </div>
       <div className="w-[250px] relative left-3">
         {/* Top green offer */}
-        <div className=" h-[40px] flex items-center justify-between rounded-lg bg-green-600 px-3 py-2 text-white relative overflow-hidden top-5">
+        <div className=" h-[40px] mt-2 flex items-center justify-between rounded-lg bg-green-600 px-3 py-3 text-white relative overflow-hidden  ">
           {/* dotted pattern (optional) */}
           <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle,_white_1px,_transparent_1px)] bg-[length:10px_10px]" />
 
-          <div className="relative flex items-center gap-2 text-sm font-medium">
+          <div className="relative flex items-center gap-2 text-sm font-medium ">
             <span className="bg-white text-green-600 rounded-full p-1 text-xs w-[25px] ">
               <img
                 src="	https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/dineout/rx-card/OFFER.png"
@@ -50,11 +50,12 @@ function Card(props) {
         </div>
 
         {/* Bottom light green offer */}
-        <div className=" h-[40px] rounded-lg bg-green-100 px-3 py-2 text-sm font-medium text-green-800 relative top-7 text-center ">
+        <div className=" h-[40px] rounded-lg bg-green-100 px-3 py-2 mt-2 text-sm font-medium text-green-800 relative  text-center ">
           Up to 10% off with bank offers
         </div>
       </div>
-    </div>
+      </div>
+    
   );
 }
 
