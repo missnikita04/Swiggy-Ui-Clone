@@ -104,7 +104,11 @@ Get ready for a scrumptious adventure filled with unbeatable offers on your favo
 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 pt-8 max-w-5xl">
   {foodData.map((fd,idx)=>{
     return(
-          <Cartfood  {...fd}  key={idx}/>
+             <div className=' relative w-[200px] h-[70px] border border-gray-400 rounded-2xl relative top-4  items-center justify-center'>
+     
+      <h2 className='text-gray-700 text-md font-bold  '>{fd.dish} </h2>
+    </div>
+
     )
   })}
 </div>
@@ -116,7 +120,10 @@ Get ready for a scrumptious adventure filled with unbeatable offers on your favo
 <div className="grid grid-cols-2 sm:grid-cols-3 pt-8 md:grid-cols-4 gap-3  max-w-5xl">
   {foodData1.map((fd,idx)=>{
     return(
-          <CardGrocery  {...fd}  key={idx}/>
+    <div className=' relative w-[200px] h-[70px] border border-gray-400 rounded-2xl relative top-4  items-center justify-center'>
+     
+      <h2 className='text-gray-700 text-md font-bold  '>{fd.name} </h2>
+    </div>
     )
   })}
 </div>
