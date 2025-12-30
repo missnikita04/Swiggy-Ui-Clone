@@ -20,7 +20,7 @@ const Cart = () => {
         <Navbar1/>
       <div className="h-[70vh] flex flex-col items-center justify-center m-40">
         <h1 className="text-2xl font-bold text-gray-700">Your cart is empty</h1>
-        <p className="text-gray-500">You can go to home page to view more restaurants</p>
+        <p className="text-gray-600">You can go to home page to view more restaurants</p>
         <div className="w-[400px] h-[40px] bg-[#ff5200] m-4">
           <p className="text-white text-lg font-semibold p-1 text-center">See restaurants near you</p>
         </div>
