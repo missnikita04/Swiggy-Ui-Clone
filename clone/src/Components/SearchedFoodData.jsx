@@ -5,11 +5,10 @@ import Navbar1 from "./Navbar1";
 import { foodData } from "../assets/assest";
 import { useParams } from "react-router-dom";
 import { PiGreaterThanLight } from "react-icons/pi";
-
+import {useCart} from "../context/CartContext"
 function SearchedFoodData() {
   const [input, setInput] = useState("");
   const [selectedCategory, setSelectedCategory] = useState(""); // For clicked search item
-  const [active,setActive]=useState("Dishes");
   const { category } = useParams();
 
   // Show food based on route category OR clicked category
@@ -28,6 +27,7 @@ function SearchedFoodData() {
       item.name.toLowerCase().includes(input.toLowerCase()) ||
       item.category.toLowerCase().includes(input.toLowerCase())
   );
+  const {addToCart}=useCart();
 
   return (
     <>
@@ -169,6 +169,7 @@ function SearchedFoodData() {
                     />
 
                     <button
+                    onClick={()=> addToCart(item)}
                       className="absolute -bottom-4 left-1/2 -translate-x-1/2
                                  bg-white text-green-600 font-bold text-sm
                                  px-6 py-1.5 rounded-lg border

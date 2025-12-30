@@ -2,63 +2,82 @@ import React from "react";
 import Navbar1 from "./Navbar1";
 import { useParams } from "react-router-dom";
 import { foodData } from "../assets/assest";
+import { useCart } from "../context/CartContext";
 const ScrollCategory = () => {
   const { type } = useParams();
 
-const filterData = foodData.filter(
-  (item) => item.name.toLowerCase().includes(type.toLowerCase())
-);
+  const filterData = foodData.filter((item) =>
+    item.name.toLowerCase().includes(type.toLowerCase())
+  );
+    const {addToCart}=useCart();
+  
   return (
     <>
       <Navbar1 />
 
       <div className="p-4">
-        <h1 className="text-5xl font-bold capitalize mb-4 pl-50">
-          {type}
-        </h1>
+        <h1 className="text-5xl font-bold capitalize mb-4 pl-50">{type}</h1>
 
-
-                <div className="max-w-6xl mx-auto p-6 mt-10
+        <div
+          className="max-w-6xl mx-auto p-6 mt-10
                         h-[80vh] overflow-y-auto
-                        border-t-4 border-gray-200 bg-gray-50">
-
-
+                        border-t-4 border-gray-200 bg-gray-50"
+        >
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filterData.map((data, idx) => (
-               <div  key={idx} className="w-[300px] cursor-pointer">
-      {/* IMAGE */}
-      <div className="relative h-[190px] rounded-2xl overflow-hidden">
-        <img
-          src={data.image}
-          alt={data.name}
-          className="w-full h-full object-cover"
-        />
+            {filterData.map((data, idx) => (
+              <div key={idx} className="w-[300px] cursor-pointer">
+                {/* IMAGE */}
+                <div className="relative h-[190px] rounded-2xl overflow-hidden">
+                  <img
+                    src={data.image}
+                    alt={data.name}
+                    className="w-full h-full object-cover"
+                  />
 
-        {/* OFFER */}
-        <div className="absolute bottom-2 left-2 bg-black/70 text-white text-sm font-bold px-3 py-1 rounded">
-          {data.offer}
-        </div>
-      </div>
+                  {/* OFFER */}
+                  <div className="absolute bottom-2 left-2 bg-black/70 text-white text-sm font-bold px-3 py-1 rounded">
+                    {data.offer}
+                  </div>
+                </div>
 
-      {/* DETAILS */}
-      <div className="mt-2">
-<h3 className="font-bold text-lg truncate">{data.name}</h3>
-        <div className="flex items-center gap-2 text-sm mt-1">
-          <span className="flex items-center gap-1 bg-green-600 text-white px-1.5 py-0.5 rounded">
-            <Star className="inline relative top-0" /> {data.rating}
-         
-          </span>
-<div className="text-gray-700 font-medium">
-  ₹{data.price}
-</div>    
-    </div>
+                {/* DETAILS */}
+                <div className="mt-2">
+                  <h3 className="font-bold text-lg truncate">{data.name}</h3>
+                  <div className="flex items-center gap-2 text-sm mt-1">
+                    <span className="flex items-center gap-1 bg-green-600 text-white px-1.5 py-0.5 rounded">
+                      <Star className="inline relative top-0" /> {data.rating}
+                    </span>
+                    <div className="text-gray-700 font-medium">
+                      ₹{data.price}
+                    </div>
+                  </div>
 
-<p className="text-gray-500 text-sm truncate">{data.name}</p>     
-   <p className="text-gray-500 text-sm">{data.place}</p>
-      </div>
-    </div>
-          ))}
-        </div>
+                  <div className=" flex justify-between">
+                    <div className="py-2">
+                    {" "}
+                    <p className="text-gray-500 text-sm truncate">
+                      {data.name}
+                    </p>
+                    <p className="text-gray-500 text-sm">{data.place}</p>
+                    </div>
+                    {/* add buttomn */}
+                    <div>
+<button
+  onClick={() => addToCart(data)}
+  className="
+    bg-white text-green-600 font-bold text-sm
+    px-4 py-1 rounded-lg border
+    hover:bg-gray-300 hover:text-green-600 transition cursor-pointer"
+>
+  ADD
+</button>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </>
@@ -85,4 +104,3 @@ const Star = (props) => {
     </svg>
   );
 };
-

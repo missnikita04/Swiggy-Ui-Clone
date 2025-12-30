@@ -138,6 +138,7 @@ function Category() {
         {
             Category.map((cate,index)=>{
                 return( <div
+                   onClick={()=>navigate(`/category/${cate.path}`)}
                 style={{transform:`translateX(-${slide *100}%`}}
                 
                 key={index} className='w-[150px] shrink-0  duration-500 z-0'>

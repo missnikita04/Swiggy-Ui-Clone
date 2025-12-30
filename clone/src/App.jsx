@@ -11,10 +11,11 @@ import User from "./Components/User";
 import Corporate from "./Components/Corporate"
 import SearchedFoodData from "./Components/SearchedFoodData";
 import ScrollCategory from "./Components/ScrollCategory";
-
+import {CartProvider} from "../src/context/CartContext"
 function App() {
   return (
     <div>
+      <CartProvider>
       <Routes>
         <Route path="/" element={<Hero />} />
         <Route path="/search" element={<Category />} />
@@ -28,6 +29,7 @@ function App() {
         <Route path="/category/:type" element={<ScrollCategory/>}/>
 
       </Routes>
+      </CartProvider>
       {/* <Navbar/>
       <Category/> */}
     </div>

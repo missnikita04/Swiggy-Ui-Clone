@@ -10,7 +10,7 @@ import {  NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { IoLocationOutline } from "react-icons/io5";
 import {indiaStates} from "../../src/assets/assest";
-
+import NavImg from "../../public/images/logo.webp"
 function Navbar1() {
   const [toggle, setToggle] = useState(false);
     const [query, setQuery] = useState("");
@@ -165,7 +165,7 @@ const getcurrentLocation=()=>{
         <div className="max-w-[12000px] mx-auto flex items-center justify-between">
 <div className="flex items-center gap-4">
   <div className="w-[100px]">
-   <NavLink to="/"> <img src="images/logo.webp" className="w-full" alt="swiggy logo" /></NavLink>
+   <NavLink to="/"> <img src={NavImg} className="w-full" alt="swiggy logo" /></NavLink>
   </div>
   {showCart &&(
             <h1 className="text-xl font-bold text-gray-800">SECURE CHECKOUT</h1>
