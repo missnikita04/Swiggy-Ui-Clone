@@ -9,7 +9,7 @@ import { FaBox } from "react-icons/fa";
 import {  NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { IoLocationOutline } from "react-icons/io5";
-import indiaStates from "../../src/assets/assest";
+import {indiaStates} from "../../src/assets/assest";
 
 function Navbar1() {
   const [toggle, setToggle] = useState(false);
@@ -31,7 +31,7 @@ function Navbar1() {
     {
         icon:<FaBox />,
         name:"Swiggy Corporate",
-        path:"/Corporate"
+        path:"corporate"
     },
      {
         icon:<IoSearch  />,
@@ -41,7 +41,7 @@ function Navbar1() {
         icon:<CiDiscount1  />,
         name:"discount",
         sup:"new",
-        path:"/discount"
+        path:"discount"
     } ,{
         icon:<MdOutlineHelp  />,
         name:"help",
@@ -49,16 +49,17 @@ function Navbar1() {
     }, {
         icon:<FaRegUser />,
         name:"user",
-        path:"/user"
+        path:"user"
     }, {
         icon:<IoCartOutline />,
         name:"cart",
-        path:"/cart"
+        path:"cart"
     }
   ]
     const filteredLinks=currentPath==="/cart"?links.filter((link)=>link.name==="help" || link.name==="user"):links ; //show all link
 const showOtherDropdown=currentPath==="/discount" || currentPath==="/search";
 const showHelp=currentPath==="/help";
+const showCart=currentPath==="/cart";
   const filteredStates = indiaStates.filter((state) =>
     state.toLowerCase().includes(query.toLowerCase())
   );
@@ -166,8 +167,14 @@ const getcurrentLocation=()=>{
   <div className="w-[100px]">
    <NavLink to="/"> <img src="images/logo.webp" className="w-full" alt="swiggy logo" /></NavLink>
   </div>
+  {showCart &&(
+            <h1 className="text-xl font-bold text-gray-800">SECURE CHECKOUT</h1>
+
+
+  )
+  }
   {showHelp && (
-    <h1 className="text-xl font-bold text-gray-800">Help</h1>
+    <h1 className="text-xl font-bold text-gray-800">HELP</h1>
   )}
 { showOtherDropdown && (
   <span className="font-bold cursor-pointer border-b-[3px] border-black">
@@ -182,7 +189,7 @@ const getcurrentLocation=()=>{
           <nav className="flex list-none gap-10  font-semibold text-[20px]   ">
             {filteredLinks.map(  
                 (links,index)  =>
-                  <NavLink  to={`/${links.name}`} key={index} className="flex items-center gap-1 hover:text-[#ff5200] cursor-pointer">{links.icon} {links.name} <sup className="text-yellow-400">{links.sup}</sup></NavLink>
+                  <NavLink  to={`/${links.path}`} key={index} className="flex items-center gap-1 hover:text-[#ff5200] cursor-pointer">{links.icon} {links.name} <sup className="text-yellow-400">{links.sup}</sup></NavLink>
                    )}
           </nav>
         </div>

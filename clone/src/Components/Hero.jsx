@@ -12,7 +12,7 @@ import News from "../Components/News";
 import Cartfood from "./Cartfood";
 import CardGrocery from "./CardGrocery";
 import { useNavigate } from "react-router-dom";
-import indiaStates from "../../src/assets/assest";
+import {indiaStates} from "../../src/assets/assest";
 function Hero() {
   const [slide, setSlide] = useState(0);
   const [Category, setCategory] = useState([]);
@@ -263,24 +263,26 @@ flex flex-col md:flex-row gap-10 justify-center px-4 relative  "
               <div
                 style={{ transform: `translateX(-${slide * 100}%` }}
                 key={index}
+                onClick={()=>navigate(`/category/${cate.path}`)}
                 className="w-[150px] shrink-0  duration-700 z-0"
               >
                 <img
                   src={"http://localhost:5000/images/" + cate.image}
-                  alt=""
+                  alt="cate.path"
                 />
               </div>
             );
           })}
         </div>
 
-        {/* grocery with instamart */}
         <div className="flex z-0  overflow-hidden ">
           {Category.map((cate, index) => {
             return (
               <div
                 style={{ transform: `translateX(-${slide * 100}%` }}
                 key={index}
+                                onClick={()=>navigate(`/category/${cate.path}`)}
+
                 className="w-[150px] shrink-0   duration-700 z-0"
               >
                 <img

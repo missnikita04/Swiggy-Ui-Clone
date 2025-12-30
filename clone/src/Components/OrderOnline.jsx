@@ -106,7 +106,7 @@ Get ready for a scrumptious adventure filled with unbeatable offers on your favo
     return(
              <div className=' relative w-[200px] h-[70px] border border-gray-400 rounded-2xl relative top-4  items-center justify-center'>
      
-      <h2 className='text-gray-700 text-md font-bold  '>{fd.dish} </h2>
+      <h2 className='text-gray-700 text-md font-bold py-4 '>{fd.dish} </h2>
     </div>
 
     )
@@ -122,7 +122,7 @@ Get ready for a scrumptious adventure filled with unbeatable offers on your favo
     return(
     <div className=' relative w-[200px] h-[70px] border border-gray-400 rounded-2xl relative top-4  items-center justify-center'>
      
-      <h2 className='text-gray-700 text-md font-bold  '>{fd.name} </h2>
+      <h2 className='text-gray-700 text-md font-bold py-4 '>{fd.name} </h2>
     </div>
     )
   })}
